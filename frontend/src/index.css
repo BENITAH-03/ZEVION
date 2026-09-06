@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-zevion-black text-white font-sans antialiased;
+}
+
+::selection {
+  @apply bg-zevion-gold text-black;
+}
+
+/* Visible keyboard focus state for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #d4a638;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a638;
+}
+
+@layer components {
+  .section {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs sm:text-sm font-display font-semibold tracking-[0.3em] text-zevion-gold uppercase;
+  }
+
+  .heading-xl {
+    @apply font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-white;
+  }
+
+  .heading-lg {
+    @apply font-display font-bold text-3xl sm:text-4xl leading-tight tracking-tight text-white;
+  }
+
+  .heading-md {
+    @apply font-display font-semibold text-2xl sm:text-3xl leading-snug text-white;
+  }
+
+  .body-text {
+    @apply text-base sm:text-lg leading-relaxed text-zevion-gray;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-gold-gradient px-7 py-3.5 text-sm font-display font-bold uppercase tracking-wider text-black shadow-gold transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-zevion-gold/50 bg-transparent px-7 py-3.5 text-sm font-display font-bold uppercase tracking-wider text-zevion-gold-light transition-colors duration-200 hover:bg-zevion-gold/10;
+  }
+
+  .card {
+    @apply rounded-xl border border-zevion-border bg-zevion-panel p-6 sm:p-8 shadow-card transition-all duration-300 hover:border-zevion-gold/40 hover:-translate-y-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-zevion-gold/40 bg-zevion-gold/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-zevion-gold-light;
+  }
+
+  .disclaimer-box {
+    @apply rounded-lg border border-zevion-gold/30 bg-zevion-gold/[0.06] p-5 text-sm leading-relaxed text-zevion-gray;
+  }
+
+  .flow-arrow {
+    @apply flex items-center justify-center text-zevion-gold animate-arrow-flow;
+  }
+
+  .reveal {
+    opacity: 0;
+    animation: fadeInUp 0.7s ease-out forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
